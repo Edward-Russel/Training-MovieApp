@@ -23,11 +23,7 @@ const MovieFilter = forwardRef((props: any) => {
   );
 
   return (
-    <Stack
-      direction={type === "inline" ? "row" : "column"}
-      spacing={2}
-      justifyContent="center"
-    >
+    <Stack spacing={1}>
       <FilterSelect
         title="Годы"
         root="Все годы"

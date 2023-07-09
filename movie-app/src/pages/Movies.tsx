@@ -97,19 +97,21 @@ const Movies = () => {
                 <FilterAlt />
               </IconButton>
             </Box>
-            <Collapse
-              className="for-mobile-elements"
-              in={filterExpanded}
-              timeout="auto"
-              unmountOnExit
-              sx={{ mt: 2 }}
-            >
-              <MovieFilter
-                type="inline"
-                year={register("release")}
-                genre={register("genre")}
-              />
-            </Collapse>
+            <Box>
+              <Collapse
+                className="for-mobile-elements"
+                in={filterExpanded}
+                timeout="auto"
+                unmountOnExit
+                sx={{ mt: 2 }}
+              >
+                <MovieFilter
+                  type="inline"
+                  year={register("release")}
+                  genre={register("genre")}
+                />
+              </Collapse>
+            </Box>
           </Box>
           <Box sx={{ mt: 2, "& > *": { my: 2 } }}>
             {loadMovieError ? (
