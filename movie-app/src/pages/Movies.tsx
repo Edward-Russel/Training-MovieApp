@@ -24,12 +24,7 @@ type SearchData = {
 
 async function fetchMovies() {
   const response = await fetch("http://localhost:3000");
-  if (response.ok) {
-    const result = await response.json();
-    return result;
-  } else {
-    return null;
-  }
+  return await response.json();
 }
 
 function movieFilter(movie: Movie, filter: SearchData): boolean {
@@ -61,15 +56,13 @@ const Movies = () => {
 
   useEffect(() => {
     if (movies.length === 0) {
-      fetchMovies().then((result) => {
-        if (result) {
+      fetchMovies()
+        .then((result) => {
           for (const movie of result) {
             dispatch(addMovie(movie));
           }
-        } else {
-          selLoadMovieError(true);
-        }
-      });
+        })
+        .catch(() => selLoadMovieError(true));
     }
   }, []);
 
