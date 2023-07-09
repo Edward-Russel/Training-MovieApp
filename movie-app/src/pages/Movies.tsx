@@ -1,20 +1,20 @@
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useForm, SubmitHandler } from "react-hook-form";
-import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
-import Box from "@material-ui/core/Box";
-import Collapse from "@material-ui/core/Collapse";
 import FilterAlt from "@material-ui/icons/FilterAlt";
+import Container from "@material-ui/core/Container";
+import Collapse from "@material-ui/core/Collapse";
+import Stack from "@material-ui/core/Stack";
+import Box from "@material-ui/core/Box";
 
-import MovieCard from "../components/MovieCard";
 import SearchInput from "../components/SearchInput";
 import MovieFilter from "../components/MovieFilter";
+import MovieCard from "../components/MovieCard";
 
 import { addMovie, Movie } from "../store/movies-slice";
 import { RootState } from "../store";
-import Stack from "@material-ui/core/Stack";
 
 type SearchData = {
   title?: string;
@@ -50,7 +50,6 @@ const Movies = () => {
   const { register, handleSubmit } = useForm<SearchData>();
 
   const onSubmit: SubmitHandler<SearchData> = (data) => {
-    console.log(data);
     setFilter({
       title: data.title?.toLowerCase(),
       release: data.release === "Все годы" ? undefined : data.release,

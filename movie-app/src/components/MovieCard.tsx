@@ -1,12 +1,12 @@
 import { useState } from "react";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
-import Rating from "@material-ui/core/Rating";
-import Box from "@material-ui/core/Box";
-import Modal from "@material-ui/core/Modal";
+import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
+import Rating from "@material-ui/core/Rating";
+import Modal from "@material-ui/core/Modal";
+import Box from "@material-ui/core/Box";
 import { Theme } from "@emotion/react";
 
 const style: Theme = {
@@ -41,13 +41,12 @@ const MovieCard = (props: any) => {
         <CardMedia sx={{ width: 72, height: 108 }} image={img} title={title} />
         <Box sx={{ display: "flex", flexDirection: "column" }}>
           <CardContent sx={{ flex: "1 0 auto" }}>
-            <Typography component="div" variant="h6">
+            <Typography variant="h6">
               {title}
             </Typography>
             <Typography
               variant="subtitle1"
               color="text.secondary"
-              component="div"
             >
               {release}
             </Typography>

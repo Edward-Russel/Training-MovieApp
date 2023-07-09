@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
-import Button from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
-import Radio from "@material-ui/core/Radio";
-import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormControl from "@material-ui/core/FormControl";
-import Container from "@material-ui/core/Container";
+import RadioGroup from "@material-ui/core/RadioGroup";
 import Typography from "@material-ui/core/Typography";
-import Box from "@material-ui/core/Box";
 import FormGroup from "@material-ui/core/FormGroup";
+import TextField from "@material-ui/core/TextField";
+import Container from "@material-ui/core/Container";
+import Button from "@material-ui/core/Button";
+import Radio from "@material-ui/core/Radio";
+import Box from "@material-ui/core/Box";
 
 type ProfileData = {
   firstName: string;

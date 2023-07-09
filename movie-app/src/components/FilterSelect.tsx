@@ -1,7 +1,7 @@
 import { forwardRef, useState } from "react";
+import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import Select from "@material-ui/core/Select";
-import InputLabel from "@material-ui/core/InputLabel";
 import Stack from "@material-ui/core/Stack";
 
 const FilterSelect = forwardRef((props: any & { set: any[] }) => {

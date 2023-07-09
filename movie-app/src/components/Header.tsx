@@ -1,11 +1,14 @@
 import { Link } from "react-router-dom";
-import { AppBar, Toolbar, Typography, Button } from "@material-ui/core";
+import Typography from "@material-ui/core/Typography";
+import Toolbar from "@material-ui/core/Toolbar";
+import AppBar from "@material-ui/core/AppBar";
+import Button from "@material-ui/core/Button";
 
 function Header() {
   return (
     <AppBar position="static">
       <Toolbar>
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+        <Typography variant="h6" sx={{ flexGrow: 1 }}>
           MoovieApp
         </Typography>
         <Button component={Link} to="/" color="inherit">

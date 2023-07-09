@@ -1,8 +1,8 @@
 import { forwardRef } from "react";
-import Paper from "@material-ui/core/Paper";
 import InputBase from "@material-ui/core/InputBase";
 import IconButton from "@material-ui/core/IconButton";
 import SearchIcon from "@material-ui/icons/Search";
+import Paper from "@material-ui/core/Paper";
 
 const SearchInput = forwardRef((props: any, ref: any) => {
   return (
