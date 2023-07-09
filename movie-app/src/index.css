@@ -1,0 +1,26 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+@media (min-width: 650px) {
+  .for-mobile-elements {
+    display: none !important;
+  }
+}
+
+@media (max-width: 649px) {
+  .for-not-mobile-elements {
+    display: none !important;
+  }
+}
