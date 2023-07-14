@@ -1,15 +1,23 @@
 import { useState } from "react";
-import Card from "@material-ui/core/Card";
-import CardContent from "@material-ui/core/CardContent";
-import Typography from "@material-ui/core/Typography";
-import CardMedia from "@material-ui/core/CardMedia";
-import Button from "@material-ui/core/Button";
-import Rating from "@material-ui/core/Rating";
-import Modal from "@material-ui/core/Modal";
-import Box from "@material-ui/core/Box";
-import { Theme } from "@emotion/react";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import Rating from "@mui/material/Rating";
+import Modal from "@mui/material/Modal";
+import Box from "@mui/material/Box";
 
-const style: Theme = {
+import { baseUrl } from "../services/tmdb";
+
+type MovieCardProps = {
+  rating: number;
+  title: string;
+  release: string;
+  description: string;
+  img: string;
+}
+
+const style = {
   "& > *": {
     mt: 2,
   },
@@ -25,7 +33,7 @@ const style: Theme = {
   p: 4,
 };
 
-const MovieCard = (props: any) => {
+const MovieCard = (props: MovieCardProps) => {
   const { rating, title, release, description, img } = props;
   const [open, setOpen] = useState(false);
 
@@ -38,7 +46,7 @@ const MovieCard = (props: any) => {
         onClick={handleOpen}
         sx={{ display: "flex", alignItems: "center", cursor: "pointer" }}
       >
-        <CardMedia sx={{ width: 72, height: 108 }} image={img} title={title} />
+        <img src={`${baseUrl}${img}`} width="72" height="108" title={title} />
         <Box sx={{ display: "flex", flexDirection: "column" }}>
           <CardContent sx={{ flex: "1 0 auto" }}>
             <Typography variant="h6">
@@ -52,7 +60,7 @@ const MovieCard = (props: any) => {
             </Typography>
           </CardContent>
           <Box sx={{ display: "flex", alignItems: "center", pl: 1, pb: 1 }}>
-            <Rating value={rating * 5} precision={0.1} readOnly />
+            <Rating value={rating} precision={0.1} readOnly />
           </Box>
         </Box>
       </Card>

@@ -1,26 +1,26 @@
 import { forwardRef } from "react";
 import { useSelector } from "react-redux";
-import Button from "@material-ui/core/Button";
-import Stack from "@material-ui/core/Stack";
+import Button from "@mui/material/Button";
+import Stack from "@mui/material/Stack";
 
 import { RootState } from "../store";
 
 import FilterSelect from "./FilterSelect";
 
-const MovieFilter = forwardRef((props: any) => {
-  const { type } = props;
+type MovieFilterProps = {
+  year: {
+    [propName: string]: any;
+  };
+  genre: {
+    [propsName: string]: any;
+  };
+}
+
+const MovieFilter = forwardRef((props: MovieFilterProps, ref) => {
   const yearFormHook = props.year;
   const genreFormHook = props.genre;
-  const movies = useSelector((state: RootState) => state.movies);
-  const years: number[] = movies.map((movie) => movie.release);
-  const genres: string[] = Array.from(
-    movies.reduce((acc, movie) => {
-      for (const genre of movie.genre) {
-        acc.add(genre);
-      }
-      return acc;
-    }, new Set<string>())
-  );
+  const years: string[] = Array.from(new Set(useSelector((state: RootState) => state.movies).map((movie) => movie.release)));
+  const genres: string[] = useSelector((state: RootState) => state.genres).map((genre) => genre.name);
 
   return (
     <Stack spacing={1}>
@@ -28,12 +28,14 @@ const MovieFilter = forwardRef((props: any) => {
         title="Годы"
         root="Все годы"
         set={years}
+        ref={ref}
         {...yearFormHook}
       />
       <FilterSelect
         title="Жанры"
         root="Все жанры"
         set={genres}
+        ref={ref}
         {...genreFormHook}
       />
       <Button variant="contained" type="submit">

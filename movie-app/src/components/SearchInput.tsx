@@ -1,10 +1,16 @@
 import { forwardRef } from "react";
-import InputBase from "@material-ui/core/InputBase";
-import IconButton from "@material-ui/core/IconButton";
-import SearchIcon from "@material-ui/icons/Search";
-import Paper from "@material-ui/core/Paper";
+import { SxProps, Theme } from "@mui/material";
+import InputBase from "@mui/material/InputBase";
+import IconButton from "@mui/material/IconButton";
+import SearchIcon from "@mui/icons-material/Search";
+import Paper from "@mui/material/Paper";
 
-const SearchInput = forwardRef((props: any, ref: any) => {
+type SearchInputProps = {
+  sx: SxProps<Theme> | undefined;
+  [propName: string]: any;
+};
+
+const SearchInput = forwardRef((props: SearchInputProps, ref) => {
   return (
     <Paper
       sx={{ p: "2px 4px", display: "flex", alignItems: "center", ...props.sx }}

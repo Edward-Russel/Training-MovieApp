@@ -3,7 +3,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 export type Movie = {
   id: number;
   rating: number;
-  release: number;
+  release: string;
   img: string;
   title: string;
   description: string;

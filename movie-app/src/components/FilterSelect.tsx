@@ -1,17 +1,25 @@
 import { forwardRef, useState } from "react";
-import InputLabel from "@material-ui/core/InputLabel";
-import MenuItem from "@material-ui/core/MenuItem";
-import Select from "@material-ui/core/Select";
-import Stack from "@material-ui/core/Stack";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import Select, { SelectChangeEvent } from "@mui/material/Select";
+import Stack from "@mui/material/Stack";
 
-const FilterSelect = forwardRef((props: any & { set: any[] }) => {
+type FilterSelectProps = {
+  title: string;
+  set: Array<string | number>;
+  root: string;
+  default: string | number;
+  [propNane: string]: any;
+}
+
+const FilterSelect = forwardRef((props: FilterSelectProps, ref) => {
   const { title } = props;
   const values = props.set;
   const rootValue = props.root;
   const defaultValue = props.default || rootValue || values[0];
   const [value, setValue] = useState(defaultValue);
 
-  const handleChange = (e: any) => {
+  const handleChange = (e: SelectChangeEvent<string | number>) => {
     setValue(e.target.value);
     if (props.onChange) props.onChange(e);
   };
@@ -21,11 +29,11 @@ const FilterSelect = forwardRef((props: any & { set: any[] }) => {
       <InputLabel shrink htmlFor="select-multiple-native">
         {title}
       </InputLabel>
-      <Select value={value} {...props} onChange={handleChange}>
+      <Select ref={ref} value={value} {...props} onChange={handleChange}>
         {rootValue !== undefined && (
           <MenuItem value={rootValue}>{rootValue}</MenuItem>
         )}
-        {values.map((value: any) => (
+        {values.map((value) => (
           <MenuItem key={value} value={value}>
             {value}
           </MenuItem>
