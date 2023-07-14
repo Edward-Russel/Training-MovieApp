@@ -9,7 +9,7 @@ type FilterSelectProps = {
   set: Array<string | number>;
   root: string;
   default: string | number;
-  [propNane: string]: any;
+  [propName: string]: any;
 }
 
 const FilterSelect = forwardRef((props: FilterSelectProps, ref) => {

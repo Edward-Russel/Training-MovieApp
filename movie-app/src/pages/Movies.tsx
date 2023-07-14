@@ -61,7 +61,7 @@ const Movies = () => {
         dispatch(addGenre(genre));
       }
     }
-  }, [rawPage, rawGenres]);
+  }, [rawGenres]);
 
   useEffect(() => {
     if (genres.length) {
